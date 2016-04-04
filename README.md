@@ -1,3 +1,5 @@
 # phpcalculator
 a way to test my php skills
-a simple calculator
+ with a simple calculator
+ 
+ //update: completed second iteration of the calculator.
