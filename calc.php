@@ -24,6 +24,20 @@
 	 <div id="col2">
 	<div id="result"><p>Your Answer: <br /><span>
 				<?php
+				
+				// we calculate string
+				function calculate_string( $mathString ) {
+
+				    //we get rid of white space from both ends of the string
+				    $mathString = trim($mathString);
+					//validate
+					$mathString = preg_replace('[^0-9\+-\*\/\(\) ]', '', $mathString);
+					//here we calculate the string
+				    $compute = create_function("", "return (" . $mathString . ");" );
+					//here we return the value of the function because functions always return value
+				    return $compute();
+
+				}
 				//we check if submit is clicked
 				if (isset($_POST['submit'])){
 					//check if text input is empty
@@ -33,19 +47,7 @@
 					 
 					
 					else {
-						//after we calculate string
-						function calculate_string( $mathString ) {
-
-						    //we get rid of white space from both ends of the string
-						    $mathString = trim($mathString);
-							//validate
-							$mathString = preg_replace('[^0-9\+-\*\/\(\) ]', '', $mathString);
-							//here we calculate the string
-						    $compute = create_function("", "return (" . $mathString . ");" );
-							//here we return the value of the function because functions always return value
-						    return $compute();
-
-						}
+					
 
 						$string = $_POST['numbers'];
 						echo calculate_string($string); 
